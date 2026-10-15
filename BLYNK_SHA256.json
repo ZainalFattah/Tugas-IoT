@@ -1,0 +1,12 @@
+{
+  "Firmware/UdaraKitaBlynk/UdaraKitaBlynk.ino": "cf14d4f7e00f6d70edfac2d5e94425bbcb63931aa4d2b38c9e3cb6b047096592",
+  "Firmware/UdaraKitaBlynk/Config.h": "0e23add24556715ea55343ff7f4f614faeeff770710ab305f524c4d0651c7e18",
+  "Firmware/UdaraKitaBlynk/SensorLogic.h": "20850298bc35d6f3068d1545d1d23fcd2a7256ec20198230855778f830ce152b",
+  "platformio_blynk.ini": "d9a7a62b2a62404260137733c435a9327d69fff8073c01c8cff26954c4ed88fd",
+  "CARA_RUN_BLYNK.md": "c4d6365f36a6a4391c159c0f0a40d98a1472fdaf72102a97513776b0baf0b3fa",
+  "PANDUAN_PERAKITAN_BREADBOARD.md": "08245a0d2af490c6af6f91635dd201f3da3008e3d936bbcb4c12523d8db996e3",
+  "Skema_Perakitan_Breadboard.svg": "3a1a930c918c8289d7a1ee411585c008d81b0ce2393327c3d81d6f70c027e4db",
+  "Dashboard/Rancangan_Blynk.png": "b03fc4ebc0841340e5a0f79d9d6a2aef23112466b1b4de400083a0da361ec664",
+  "Datastream_Blynk.csv": "ab8fcabdf430c394be9695a2a3854efb77a95c5094501766df46b897396d0fd6",
+  "HASIL_PENGUJIAN_BLYNK.txt": "6406f3f65d26e1f0285a2776f80986241a805031342fdb96d51ab1f036d6dfeb"
+}

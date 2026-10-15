@@ -1,0 +1,15 @@
+﻿Dari PCB,Ke label modul,Warna saran
+J2.1,MQ-135 VCC / 5V,Merah
+J2.2,MQ-135 GND,Hitam
+J2.3,MQ-135 AO,Kuning
+J3.1,NodeMCU A0,Kuning
+J3.2,NodeMCU GND,Hitam
+J4.1,NodeMCU 3V3,Oranye
+J4.2,NodeMCU D2 / GPIO4,Biru
+J4.3,NodeMCU GND,Hitam
+J5.1,DHT11 VCC / 3V3,Oranye
+J5.2,DHT11 DATA / S,Biru
+J5.3,DHT11 GND / -,Hitam
+J6.1,NodeMCU D5 / GPIO14,Hijau
+J6.2,NodeMCU D6 / GPIO12,Ungu
+J6.3,NodeMCU GND,Hitam

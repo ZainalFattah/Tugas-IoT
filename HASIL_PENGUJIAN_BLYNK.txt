@@ -1,0 +1,40 @@
+UdaraKita Blynk — hasil pemeriksaan 14 Oktober 2026
+
+BUILD PASS
+- PlatformIO espressif8266 4.2.1
+- Arduino Core ESP8266 3.1.2
+- Target NodeMCU 1.0 / ESP-12E / flash 4 MB / CPU 80 MHz
+- Blynk library 1.3.2 melalui BlynkSimpleEsp8266_SSL.h
+- DHT sensor library 1.4.6 dan Adafruit Unified Sensor 1.1.15
+- RAM statis 31.184 / 81.920 byte (38,1%)
+- Program flash 408.783 / 1.044.464 byte (39,1%)
+
+UNIT TEST PASS
+- baseline stabil diterima;
+- baseline tidak stabil, terlalu singkat, nol, dan jenuh ditolak;
+- onset/recovery alarm 10 detik dan hysteresis;
+- excursion terputus mereset timer;
+- sensor invalid mematikan state indikator;
+- rollover millis unsigned.
+
+PEMERIKSAAN DESAIN
+- V0/V1/V2 hanya dikirim bila sensor terkait valid;
+- V3/V7 mengirim -1 ketika rasio/baseline belum tersedia;
+- V4 selalu membawa state dan validitas sensor;
+- V5/V6 diperlakukan sebagai perintah sesaat dan tidak disinkronkan ulang;
+- V5/V6 dikembalikan ke 0 setelah perintah diterima;
+- reconnect Blynk dibatasi sekali per 30 detik;
+- koneksi TLS menunggu sinkronisasi waktu NTP tanpa memblokir sampling;
+- keputusan LED tetap berjalan lokal tanpa Blynk.Cloud;
+- placeholder Template ID/Auth Token/Wi-Fi mencegah koneksi sebelum dikonfigurasi.
+
+BELUM DIUJI
+- upload dan eksekusi pada board fisik;
+- koneksi dengan Auth Token akun Blynk nyata;
+- pembuatan widget pada akun pengguna;
+- pembacaan sensor, suplai, dan PCB fisik;
+- perilaku jaringan ketika NTP/TLS diblokir oleh router tertentu.
+
+Binary hasil build tidak disertakan sebagai firmware siap flash karena berisi
+placeholder. Isi Firmware/UdaraKitaBlynk/Config.h dengan kredensial milik akun,
+kemudian compile/upload dari source sesuai CARA_RUN_BLYNK.md.

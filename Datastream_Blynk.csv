@@ -1,0 +1,10 @@
+﻿Virtual Pin,Name,Type,Min,Max,Default,Unit
+V0,Suhu,Double,0,50,0,C
+V1,Kelembapan,Double,0,100,0,%RH
+V2,Respons Gas,Double,0,1023,0,ADC
+V3,Rasio Baseline,Double,-1,400,-1,ratio
+V4,Status Alat,String,,,Menunggu perangkat,
+V5,Konfirmasi Conditioning,Integer,0,1,0,command
+V6,Ambil Baseline,Integer,0,1,0,command
+V7,Baseline ADC,Double,-1,1023,-1,ADC
+V8,Waktu Menyala,Integer,0,4294967,0,seconds

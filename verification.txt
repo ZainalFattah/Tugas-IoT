@@ -1,0 +1,7 @@
+Connected nets: 10 / 10
+Tracks: 192 segments, B.Cu only, 0.50 mm
+Minimum conservative checked clearance: 0.556 mm
+Pads: 1.70 mm, drill 0.90 mm; grid 0.635 mm
+Board: 76.20 x 63.50 mm
+No vias. Routing attempt: 15
+Custom checks only. KiCad DRC/ERC and physical prototype NOT run.

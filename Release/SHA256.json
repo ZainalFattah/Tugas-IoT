@@ -1,0 +1,9 @@
+{
+  "Release/UdaraKita-NodeMCU-4MB.bin": "e4300dd184b1691ddf09d7fa0d5cf769080bce4e0e7123912e4cef23f77d0315",
+  "Firmware/UdaraKita/Config.h": "5ce22491385ba8cde78a112c9b75f0db8bd74bcfb8877bceed8fce0b0c3b8d5d",
+  "Firmware/UdaraKita/Dashboard.h": "6c2306b3ac7f8b62034cd14da19de58ca317274475c9cedea601853327cf3e80",
+  "Firmware/UdaraKita/SensorLogic.h": "20850298bc35d6f3068d1545d1d23fcd2a7256ec20198230855778f830ce152b",
+  "Firmware/UdaraKita/UdaraKita.ino": "7237a6fa43889f162fecff829f845a0d4480366165b3e180ef7168637cd45859",
+  "Dashboard/index.html": "7473d90c0cd08618f6933bc3db5ff7ee0562f81909e56ecb019937670e1e363a",
+  "platformio.ini": "d517befc5196f2b3b481c48c10563dcfb95eacdcc1b7cf9116aea40799981ae9"
+}

@@ -1,0 +1,4 @@
+.pio/
+tests/*.exe
+*.zip
+__pycache__/
