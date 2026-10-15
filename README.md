@@ -29,6 +29,8 @@ Firmware Blynk menggunakan pin berikut: DHT11 pada D2/GPIO4, LED hijau pada D5/G
 
 Buka [simulator UdaraKita](simulator/index.html) untuk mencoba rangkaian dan alur indikator tanpa membeli perangkat terlebih dahulu. [Panduan menjalankan simulator](simulator/README.md) menjelaskan tiap langkah. Simulator menggunakan komponen dan jalur rangkaian asli, tetapi merupakan model perilaku lokal; pratinjau datastream tidak mengirim data ke Blynk.Cloud.
 
+Versi web siap pakai: [UdaraKita Simulator](https://udarakita-kelompok7-simulator.jovialrose1.chatgpt.site/) (akses pemilik melalui masuk dengan ChatGPT).
+
 ## Lisensi
 
 Lihat [LICENSE](LICENSE) dan [THIRD_PARTY.md](THIRD_PARTY.md).
