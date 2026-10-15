@@ -2,7 +2,7 @@
 
 Panduan ini dipakai untuk implementasi akhir Kelompok 7. Rangkaian dapat dibongkar-pasang dan tidak memerlukan solder.
 
-Lihat [skema perakitan berwarna](Skema_Perakitan_Breadboard.svg) untuk mengikuti jalur pin, daya, resistor, dan sensor. Gambar menunjukkan hubungan listrik; posisi lubang breadboard dapat disesuaikan dengan ukuran board yang dibeli.
+Lihat [skema perakitan berwarna](Skema_Perakitan_Breadboard.svg) atau [versi PNG](Skema_Perakitan_Breadboard.png) untuk mengikuti jalur pin, daya, resistor, dan sensor. Gambar menunjukkan hubungan listrik; posisi lubang breadboard dapat disesuaikan dengan ukuran board yang dibeli. Label `3V3` dan `GND` yang berulang pada bagian sensor/LED berarti hubungkan titik tersebut ke rel dengan nama yang sama pada breadboard. Titik bulat pada jalur menandakan sambungan listrik.
 
 ## Komponen inti
 
@@ -27,6 +27,8 @@ Lihat [skema perakitan berwarna](Skema_Perakitan_Breadboard.svg) untuk mengikuti
 8. Pasang LED merah: D6 → 1 kΩ → **anoda (+, kaki panjang)** LED; **katoda (−, kaki pendek/sisi datar)** → GND.
 9. Pasang **C2 elko 100 µF** antara 5 V dan GND dekat MQ-135: kaki positif ke 5 V dan kaki negatif ke GND. Pasang **C3 100 nF** antara rel 3V3 dan GND. C1 dan C3 tidak memiliki polaritas.
 10. Periksa ulang semua sambungan dengan tabel di bawah sebelum memberi daya.
+
+Pada breadboard, tempatkan **dua kaki setiap LED pada baris yang tidak saling terhubung**. Pastikan resistor 1 kΩ berada seri di sisi anoda, bukan dipasang sejajar dengan LED. Beberapa breadboard memiliki rel daya yang terputus di tengah; cek kontinuitas rel 5 V, 3V3, dan GND, lalu beri jumper penghubung jika perlu.
 
 ## Tabel kabel cepat
 

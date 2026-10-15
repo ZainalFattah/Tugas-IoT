@@ -6,7 +6,7 @@ required=[
  p/'Firmware/UdaraKitaBlynk/UdaraKitaBlynk.ino',
  p/'Firmware/UdaraKitaBlynk/Config.h',
  p/'Firmware/UdaraKitaBlynk/SensorLogic.h',
- p/'platformio_blynk.ini',p/'CARA_RUN_BLYNK.md',p/'PANDUAN_PERAKITAN_BREADBOARD.md',p/'Skema_Perakitan_Breadboard.svg',
+ p/'platformio_blynk.ini',p/'CARA_RUN_BLYNK.md',p/'PANDUAN_PERAKITAN_BREADBOARD.md',p/'Skema_Perakitan_Breadboard.svg',p/'Skema_Perakitan_Breadboard.png',
  p/'Dashboard/Rancangan_Blynk.png',p/'Datastream_Blynk.csv',
  p/'HASIL_PENGUJIAN_BLYNK.txt'
 ]
@@ -17,7 +17,7 @@ assert 'TMPL6WAqmMi4A' in config
 manifest={str(f.relative_to(p)).replace('\\','/'):hashlib.sha256(f.read_bytes()).hexdigest() for f in required}
 (p/'BLYNK_SHA256.json').write_text(json.dumps(manifest,indent=2),encoding='utf-8')
 include=[
- 'Firmware/UdaraKitaBlynk','CARA_RUN_BLYNK.md','PANDUAN_PERAKITAN_BREADBOARD.md','Skema_Perakitan_Breadboard.svg','platformio_blynk.ini',
+ 'Firmware/UdaraKitaBlynk','CARA_RUN_BLYNK.md','PANDUAN_PERAKITAN_BREADBOARD.md','Skema_Perakitan_Breadboard.svg','Skema_Perakitan_Breadboard.png','platformio_blynk.ini',
  'Dashboard/Rancangan_Blynk.png','Dashboard/build_blynk_layout.py',
  'Datastream_Blynk.csv','HASIL_PENGUJIAN_BLYNK.txt','BLYNK_SHA256.json',
  'Rencana_Proyek.md','LICENSE','THIRD_PARTY.md',
