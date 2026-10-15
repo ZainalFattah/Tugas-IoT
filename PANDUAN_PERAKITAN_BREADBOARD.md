@@ -21,11 +21,11 @@ Lihat [skema perakitan berwarna](Skema_Perakitan_Breadboard.svg) untuk mengikuti
 2. Hubungkan GND NodeMCU ke rel biru breadboard.
 3. Hubungkan pin 3V3 ke satu baris khusus 3,3 V. Jangan gabungkan dengan rel 5 V.
 4. Hubungkan MQ-135: VCC ke 5 V dari pin VU/5V yang sudah diverifikasi dengan multimeter saat USB menyala, GND ke rel GND, dan biarkan DO kosong. Pada klon yang tidak menyediakan keluaran 5 V dari USB, gunakan sumber 5 V terpisah dengan GND bersama; jangan menebak fungsi pin VIN.
-5. Buat pembagi analog: AO MQ-135 → 47 kΩ → titik ADC; titik ADC → 10 kΩ → GND; titik ADC → A0. Pasang kapasitor 100 nF dari titik ADC ke GND.
+5. Buat pembagi analog: AO MQ-135 → 47 kΩ → titik ADC; titik ADC → 10 kΩ → GND; titik ADC → A0. Pasang **C1 100 nF** dari titik ADC ke GND untuk meredam gangguan bacaan.
 6. Hubungkan DHT11: VCC ke 3V3, GND ke GND, DATA ke D2. Bila modul tidak memiliki resistor pull-up, pasang 10 kΩ antara DATA dan 3V3.
-7. Pasang LED hijau: D5 → 1 kΩ → anoda LED; katoda → GND.
-8. Pasang LED merah: D6 → 1 kΩ → anoda LED; katoda → GND.
-9. Pasang elko 100 µF antara 5 V dan GND dekat MQ-135: kaki positif ke 5 V dan kaki negatif ke GND.
+7. Pasang LED hijau: D5 → 1 kΩ → **anoda (+, kaki panjang)** LED; **katoda (−, kaki pendek/sisi datar)** → GND.
+8. Pasang LED merah: D6 → 1 kΩ → **anoda (+, kaki panjang)** LED; **katoda (−, kaki pendek/sisi datar)** → GND.
+9. Pasang **C2 elko 100 µF** antara 5 V dan GND dekat MQ-135: kaki positif ke 5 V dan kaki negatif ke GND. Pasang **C3 100 nF** antara rel 3V3 dan GND. C1 dan C3 tidak memiliki polaritas.
 10. Periksa ulang semua sambungan dengan tabel di bawah sebelum memberi daya.
 
 ## Tabel kabel cepat
@@ -39,6 +39,9 @@ Lihat [skema perakitan berwarna](Skema_Perakitan_Breadboard.svg) untuk mengikuti
 | NodeMCU 3V3 | VCC DHT11 |
 | NodeMCU VIN/VU/5V | VCC MQ-135 |
 | NodeMCU GND | semua GND |
+| C1 100 nF | titik ADC ↔ GND |
+| C2 100 µF | kaki + ke 5 V, kaki − ke GND |
+| C3 100 nF | 3V3 ↔ GND |
 
 ## Bentuk pembagi A0
 

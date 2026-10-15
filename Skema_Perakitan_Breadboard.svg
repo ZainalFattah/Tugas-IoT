@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1700 1340" fill="#172b3c" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1700 1410" fill="#172b3c" role="img" aria-labelledby="title desc">
   <title id="title">Skema perakitan UdaraKita Kelompok 7 tanpa PCB</title>
-  <desc id="desc">NodeMCU ESP8266 terhubung ke MQ-135, DHT11, dua LED, pembagi tegangan A0, dan Blynk melalui Wi-Fi. Jalur warna menunjukkan 5 volt, 3,3 volt, ground, dan sinyal.</desc>
+  <desc id="desc">NodeMCU ESP8266 terhubung ke MQ-135, DHT11, dua LED berkaki anoda dan katoda, pembagi tegangan A0, kapasitor C1 C2 C3, dan Blynk melalui Wi-Fi. Jalur warna menunjukkan 5 volt, 3,3 volt, ground, dan sinyal.</desc>
   <defs>
     <style>
       text{font-family:Arial,Helvetica,sans-serif}
@@ -14,7 +14,7 @@
     <pattern id="holes" width="30" height="26" patternUnits="userSpaceOnUse"><circle cx="15" cy="13" r="3" fill="#bccbd0"/></pattern>
     <filter id="shadow"><feDropShadow dx="0" dy="5" stdDeviation="9" flood-color="#173d43" flood-opacity=".12"/></filter>
   </defs>
-  <rect width="1700" height="1340" fill="#f4f8f9"/>
+  <rect width="1700" height="1410" fill="#f4f8f9"/>
   <rect x="0" y="0" width="1700" height="13" fill="#149c8a"/>
   <text x="80" y="80" class="title">UDARAKITA <tspan fill="#149c8a">/</tspan> SKEMA PERAKITAN</text>
   <text x="82" y="117" class="sub">Kelompok 7 · NodeMCU ESP8266 + MQ-135 + DHT11 · breadboard, tanpa PCB</text>
@@ -62,10 +62,15 @@
 
   <rect x="1100" y="710" width="520" height="200" rx="25" class="card" filter="url(#shadow)"/>
   <text x="1143" y="755" class="head">Indikator</text>
+  <text x="1108" y="787" class="small">anoda (+)</text>
+  <text x="1254" y="787" class="small">katoda (−)</text>
   <circle cx="1225" cy="808" r="22" fill="#27b971" stroke="#168353" stroke-width="5"/>
+  <text x="1390" y="786" class="pin">LED hijau · D5</text>
+  <text x="1108" y="848" class="small">anoda (+)</text>
+  <text x="1254" y="848" class="small">katoda (−)</text>
   <circle cx="1225" cy="868" r="22" fill="#f15b62" stroke="#ad3948" stroke-width="5"/>
-  <text x="1266" y="815" class="pin">LED hijau · D5</text>
-  <text x="1266" y="875" class="pin">LED merah · D6</text>
+  <text x="1390" y="847" class="pin">LED merah · D6</text>
+  <text x="1500" y="898" class="small">GND</text>
 
   <!-- Breadboard zone -->
   <rect x="540" y="180" width="500" height="730" rx="26" class="card" filter="url(#shadow)"/>
@@ -82,9 +87,10 @@
   <!-- Power and ground; paths behind signal -->
   <path class="wire v5" d="M470 864 H550 V326 H982 H1078 V336 H1100"/>
   <path class="wire v3" d="M470 746 H526 V385 H982 H1060 V574 H1100"/>
-  <path class="wire gnd" d="M470 805 H535 V826 H980 H1068 V364 H1100 M1068 630 H1100 M1068 882 H1100"/>
+  <path class="wire gnd" d="M470 805 H535 V826 H980 H1068 V364 H1100 M1068 630 H1100"/>
   <path class="wire gnd" d="M742 826 V674 M827 826 V674"/>
-  <path class="wire gnd" d="M1068 826 H1128 V825 M1128 885 V882 H1100"/>
+  <!-- The two LED cathodes share the NodeMCU ground rail. -->
+  <path class="wire gnd" d="M980 826 V926 H1560 V808 H1247 M1560 868 H1247"/>
 
   <!-- Analog branch -->
   <path class="wire adc" d="M1100 392 H1052 V532 H916"/>
@@ -113,25 +119,48 @@
   <path class="wire green" d="M470 628 H505 V718 H880"/>
   <rect x="880" y="699" width="72" height="38" rx="11" class="component"/>
   <text x="916" y="725" text-anchor="middle" class="small">1k</text>
-  <path class="wire green" d="M952 718 H1050 V808 H1100"/>
+  <path class="wire green" d="M952 718 H1050 V808 H1203"/>
   <path class="wire red" d="M470 687 H491 V750 H786"/>
   <rect x="786" y="731" width="72" height="38" rx="11" class="component"/>
   <text x="822" y="757" text-anchor="middle" class="small">1k</text>
-  <path class="wire red" d="M858 750 H1032 V868 H1100"/>
+  <path class="wire red" d="M858 750 H1032 V868 H1203"/>
+  <g fill="#fff" stroke="#20374a" stroke-width="2">
+    <circle cx="1203" cy="808" r="5"/><circle cx="1247" cy="808" r="5"/>
+    <circle cx="1203" cy="868" r="5"/><circle cx="1247" cy="868" r="5"/>
+  </g>
 
   <!-- Explanations sit below the wiring area, keeping every connection visible. -->
-  <rect x="65" y="944" width="1555" height="128" rx="23" class="card"/>
+  <rect x="65" y="944" width="1555" height="200" rx="23" class="card"/>
   <text x="96" y="982" font-size="23" font-weight="bold">Keterangan rangkaian</text>
   <text x="96" y="1017" class="note">TITIK ADC: AO → 47k → A0</text>
   <text x="96" y="1046" class="note">DATA DHT11: D2 → DATA; R3 10 kΩ ke 3V3 bila modul belum memiliki pull-up.</text>
-  <text x="875" y="1017" class="note">C2 100 µF: + ke 5 V, − ke GND</text>
-  <text x="875" y="1046" class="note">C3 100 nF: 3V3 ke GND</text>
+  <text x="96" y="1075" class="note">C1 100 nF: satu kaki ke titik ADC, satu kaki ke GND.</text>
+  <text x="96" y="1115" class="small">Anoda = kaki panjang LED; katoda = kaki pendek/sisi datar LED.</text>
+
+  <!-- C2 and C3 are drawn as actual two-terminal capacitor symbols. Their
+       named rails are the same +5 V, +3V3, and GND rails shown above. -->
+  <text x="855" y="982" font-size="23" font-weight="bold">Kapasitor pada rel breadboard</text>
+  <text x="855" y="1014" class="pin" fill="#ef6b30">+5 V</text>
+  <path class="wire v5" d="M930 1008 H1060"/>
+  <path d="M1060 990 V1026 M1076 990 V1026" stroke="#20374a" stroke-width="4"/>
+  <text x="1040" y="989" class="small">+</text>
+  <path class="wire gnd" d="M1076 1008 H1185"/>
+  <text x="1196" y="1014" class="pin" fill="#2c4153">GND</text>
+  <text x="1290" y="1014" class="note">C2 100 µF (elko)</text>
+
+  <text x="855" y="1082" class="pin" fill="#dca322">+3V3</text>
+  <path class="wire v3" d="M930 1076 H1060"/>
+  <path d="M1060 1058 V1094 M1076 1058 V1094" stroke="#20374a" stroke-width="4"/>
+  <path class="wire gnd" d="M1076 1076 H1185"/>
+  <text x="1196" y="1082" class="pin" fill="#2c4153">GND</text>
+  <text x="1290" y="1082" class="note">C3 100 nF</text>
+  <text x="855" y="1120" class="small">Pasang kedua kapasitor di antara rel bertuliskan sama pada gambar utama.</text>
 
   <!-- Bottom summary -->
-  <rect x="65" y="1092" width="1555" height="173" rx="23" fill="#173d43"/>
-  <text x="98" y="1134" font-size="23" font-weight="bold" fill="#fff">Sebelum menyalakan</text>
-  <text x="98" y="1173" font-size="19" fill="#e5f3ee">1. Pastikan semua GND menyatu.  2. Ukur titik ADC sebelum disambung ke A0: harus di bawah 1 V.</text>
-  <text x="98" y="1204" font-size="19" fill="#e5f3ee">3. DHT11 memakai 3,3 V; MQ-135 memakai 5 V.  4. Saat upload, lepaskan catu 5 V eksternal.</text>
-  <text x="98" y="1235" font-size="16" fill="#b8d3cc">*Keluaran 5 V USB berbeda antar-klon NodeMCU; ukur pin VU/5V. R3 10 kΩ hanya bila DHT11 belum memiliki pull-up.</text>
-  <text x="80" y="1309" class="small">Warna kabel: jingga 5 V · kuning 3,3 V · biru gelap GND · hijau toska DHT · ungu analog · hijau/merah LED. DO MQ-135 tidak dipakai.</text>
+  <rect x="65" y="1164" width="1555" height="173" rx="23" fill="#173d43"/>
+  <text x="98" y="1206" font-size="23" font-weight="bold" fill="#fff">Sebelum menyalakan</text>
+  <text x="98" y="1245" font-size="19" fill="#e5f3ee">1. Pastikan semua GND menyatu.  2. Ukur titik ADC sebelum disambung ke A0: harus di bawah 1 V.</text>
+  <text x="98" y="1276" font-size="19" fill="#e5f3ee">3. DHT11 memakai 3,3 V; MQ-135 memakai 5 V.  4. Saat upload, lepaskan catu 5 V eksternal.</text>
+  <text x="98" y="1307" font-size="16" fill="#b8d3cc">*Keluaran 5 V USB berbeda antar-klon NodeMCU; ukur pin VU/5V. R3 10 kΩ hanya bila DHT11 belum memiliki pull-up.</text>
+  <text x="80" y="1380" class="small">Warna kabel: jingga 5 V · kuning 3,3 V · biru gelap GND · hijau toska DHT · ungu analog · hijau/merah LED. DO MQ-135 tidak dipakai.</text>
 </svg>

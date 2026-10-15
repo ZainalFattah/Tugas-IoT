@@ -47,7 +47,7 @@ Gunakan rel merah untuk 5 V, rel biru untuk GND, dan buat jalur 3,3 V terpisah. 
 | NodeMCU GND | — | rel GND dan GND semua modul |
 | MQ-135 AO | resistor 47 kΩ | titik ADC |
 | titik ADC | resistor 10 kΩ | GND |
-| titik ADC | kapasitor 100 nF | GND |
+| titik ADC | C1 kapasitor 100 nF | GND |
 | titik ADC | — | A0 NodeMCU |
 | NodeMCU 3V3 | — | VCC DHT11 |
 | DHT11 DATA | — | D2 / GPIO4 |
@@ -55,6 +55,8 @@ Gunakan rel merah untuk 5 V, rel biru untuk GND, dan buat jalur 3,3 V terpisah. 
 | NodeMCU D5 / GPIO14 | resistor 1 kΩ | anoda LED hijau |
 | NodeMCU D6 / GPIO12 | resistor 1 kΩ | anoda LED merah |
 | Katoda kedua LED | — | GND |
+| rel 5 V | C2 elko 100 µF (+ ke 5 V, − ke GND) | rel GND |
+| rel 3V3 | C3 kapasitor 100 nF | rel GND |
 
 \*Saat memakai USB, gunakan pin 5 V yang memang berlabel **VIN/VU/5V** pada board aktual. Klon NodeMCU berbeda-beda; cek tulisan silkscreen. Jangan memasukkan 5 V ke pin 3V3.
 
