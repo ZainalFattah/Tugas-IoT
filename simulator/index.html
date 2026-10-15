@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#071923">
+  <title>UdaraKita — Simulator Rangkaian Kelompok 7</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="brand-mark">U<span>7</span></span><div><strong>UdaraKita</strong><small>SIMULATOR RANGKAIAN</small></div></div>
+    <nav aria-label="Navigasi utama"><a href="#rangkaian">Rangkaian</a><a href="#kendali">Simulasi</a><a href="#panduan">Panduan kabel</a></nav>
+    <span class="top-pill"><span class="live-dot"></span> Simulasi lokal</span>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div><span class="eyebrow">PROYEK IoT · KELOMPOK 7</span><h1>Lihat alur udara.<br><em>Pahami tiap sambungan.</em></h1><p>Simulasi interaktif sesuai komponen rakitan: NodeMCU ESP8266, MQ-135, DHT11, dua LED, pembagi tegangan, dan tiga kapasitor. Geser nilai sensor untuk mencoba respons alat.</p></div>
+      <div class="hero-note"><span>CATATAN PENTING</span><p>Ini model perilaku untuk belajar dan presentasi. Nilai MQ-135 adalah ADC relatif, <strong>bukan ppm atau AQI</strong>. Situs ini tidak mengukur udara nyata dan tidak mengirim data ke Blynk.Cloud.</p></div>
+    </section>
+
+    <section class="summary" aria-label="Ringkasan simulasi">
+      <article><span>STATUS PERANGKAT</span><strong id="statusLabel">Conditioning</strong><small id="statusDetail">Konfirmasi masa conditioning sensor untuk mulai.</small></article>
+      <article><span>RESPONS MQ-135</span><strong><span id="adcValue">310</span> <small>ADC</small></strong><small id="ratioSummary">Rasio belum tersedia</small></article>
+      <article><span>SUHU / KELEMBAPAN</span><strong><span id="tempValue">27</span>°C <b>/</b> <span id="humidityValue">62</span>%</strong><small>Pembacaan DHT11 simulasi</small></article>
+      <article><span>INDIKATOR</span><strong id="indicatorLabel">Keduanya mati</strong><small id="indicatorDetail">Menunggu kondisi siap</small></article>
+    </section>
+
+    <section class="workarea" id="rangkaian">
+      <div class="panel circuit-panel">
+        <div class="section-head"><div><span class="eyebrow">01 / PERAKITAN</span><h2>Rangkaian interaktif</h2></div><span class="hint">Klik komponen untuk melihat fungsinya</span></div>
+        <div class="circuit-scroll">
+          <svg id="circuit" viewBox="0 0 1180 650" role="img" aria-label="Diagram rangkaian NodeMCU, MQ-135, DHT11, LED, resistor, dan kapasitor dengan sambungan berwarna">
+            <defs><pattern id="holes" width="25" height="25" patternUnits="userSpaceOnUse"><circle cx="6" cy="6" r="2.1" fill="#aabbbf" opacity=".5"/></pattern><filter id="shadow"><feDropShadow dx="0" dy="9" stdDeviation="12" flood-color="#061d26" flood-opacity=".22"/></filter></defs>
+            <rect x="6" y="8" width="1168" height="630" rx="28" fill="#eaf1ef"/>
+            <rect x="265" y="55" width="627" height="520" rx="20" fill="#fcfdfb" stroke="#c8d7d5" stroke-width="2" filter="url(#shadow)"/>
+            <rect x="283" y="89" width="591" height="444" fill="url(#holes)"/>
+            <rect x="287" y="102" width="585" height="4" rx="2" fill="#f07c49"/><rect x="287" y="132" width="585" height="4" rx="2" fill="#e5ab43"/><rect x="287" y="501" width="585" height="4" rx="2" fill="#365e75"/>
+            <text x="293" y="93" class="rail-text power-text">+5 V</text><text x="293" y="125" class="rail-text v3-text">+3,3 V</text><text x="293" y="526" class="rail-text ground-text">GND</text>
+
+            <g class="wire power" data-net="5v"><path d="M218 402 H244 V104 H400"/><path d="M765 104 H931 V136"/><path d="M765 104 V384"/></g>
+            <g class="wire v3" data-net="3v3"><path d="M218 354 H260 V134 H412"/><path d="M795 134 H912 V309"/><path d="M795 134 V451"/></g>
+            <g class="wire ground" data-net="gnd"><path d="M218 378 H250 V503 H398"/><path d="M847 503 H928 V183"/><path d="M847 503 H928 V354"/><path d="M700 503 V446"/><path d="M575 503 V333"/><path d="M660 503 V275"/><path d="M765 503 V448"/><path d="M795 503 V463"/><path d="M974 447 H1137 V503 H847"/><path d="M974 486 H1137"/></g>
+            <g class="wire data" data-net="dht"><path d="M218 280 H330 V267 H850 V332 H927"/><path d="M795 134 V257 H828"/></g>
+            <g class="wire analog" data-net="adc"><path d="M928 159 H828 V232 H759"/><path d="M691 232 H535 V250 H218"/><path d="M575 232 V276"/><path d="M660 232 V263"/></g>
+            <g class="wire green" data-net="green"><path d="M218 306 H347 V400 H659"/><path d="M727 400 H790 V447 H927"/></g>
+            <g class="wire red" data-net="red"><path d="M218 330 H365 V425 H659"/><path d="M727 425 H820 V486 H927"/></g>
+
+            <g class="component" data-part="nodemcu" tabindex="0" role="button" aria-label="NodeMCU ESP8266"><rect x="54" y="179" width="164" height="252" rx="16" fill="#123b45" stroke="#0c2d37" stroke-width="3" filter="url(#shadow)"/><rect x="81" y="199" width="110" height="96" rx="6" fill="#aabec1"/><rect x="91" y="209" width="90" height="76" rx="3" fill="#dae2df"/><path d="M108 239 h50 m-40 8 h30 m-35 8 h40" stroke="#659b91" stroke-width="4"/><text x="136" y="368" text-anchor="middle" class="part-title white">NodeMCU V3</text><text x="136" y="389" text-anchor="middle" class="part-sub white">ESP8266 · CH340</text><rect x="104" y="409" width="62" height="20" rx="4" fill="#d3e4e2"/>
+              <g class="pins"><text x="196" y="284">D2</text><text x="196" y="310">D5</text><text x="196" y="334">D6</text><text x="196" y="358">3V3</text><text x="196" y="382">GND</text><text x="190" y="406">VU*</text><text x="196" y="253">A0</text></g></g>
+
+            <g class="component" data-part="mq" tabindex="0" role="button" aria-label="Sensor gas MQ-135"><rect x="928" y="84" width="208" height="139" rx="15" fill="#ffffff" stroke="#cbdad7" stroke-width="2" filter="url(#shadow)"/><circle cx="983" cy="137" r="33" fill="#a7b9bb" stroke="#68858a" stroke-width="5"/><circle cx="983" cy="137" r="22" fill="#d2dedb"/><text x="1032" y="131" class="part-title">MQ-135</text><text x="1032" y="152" class="part-sub">modul 4 pin</text><text x="939" y="181" class="pin-label">VCC · AO · GND</text><text x="939" y="202" class="part-sub">DO tidak dipakai</text></g>
+            <g class="component" data-part="dht" tabindex="0" role="button" aria-label="Sensor suhu dan kelembapan DHT11"><rect x="928" y="270" width="208" height="118" rx="15" fill="#ffffff" stroke="#cbdad7" stroke-width="2" filter="url(#shadow)"/><rect x="948" y="288" width="64" height="67" rx="8" fill="#45a4c7" stroke="#28779a" stroke-width="3"/><path d="M958 300 h44 m-44 12 h44 m-44 12 h44 m-44 12 h44" stroke="#26789b" stroke-width="4" stroke-dasharray="9 5"/><text x="1028" y="313" class="part-title">DHT11</text><text x="1028" y="335" class="part-sub">3,3 V · DATA · GND</text><text x="1028" y="358" class="part-sub">DATA → D2</text></g>
+
+            <g class="component resistor" data-part="divider" tabindex="0" role="button" aria-label="Pembagi tegangan ADC"><rect x="690" y="216" width="69" height="32" rx="8" fill="#f7f1df" stroke="#b09062" stroke-width="2"/><text x="725" y="237" text-anchor="middle">47 kΩ</text><rect x="560" y="276" width="31" height="57" rx="8" fill="#f7f1df" stroke="#b09062" stroke-width="2"/><text x="575" y="308" text-anchor="middle" transform="rotate(-90 575 308)">10 kΩ</text></g>
+            <g class="component" data-part="c1" tabindex="0" role="button" aria-label="C1 kapasitor 100 nanofarad di ADC"><path d="M648 263 H672 M648 275 H672" stroke="#566e87" stroke-width="5"/><text x="660" y="253" text-anchor="middle" class="tiny-label">C1</text><text x="685" y="287" class="tiny-label">100 nF</text></g>
+            <g class="component" data-part="pullup" tabindex="0" role="button" aria-label="Resistor pull-up DHT11 opsional"><rect x="794" y="242" width="34" height="32" rx="6" fill="#f7f1df" stroke="#b09062" stroke-width="2"/><text x="811" y="261" text-anchor="middle" class="small-res">10 kΩ</text><text x="847" y="255" class="tiny-label">R3*</text></g>
+            <g class="component" data-part="c2" tabindex="0" role="button" aria-label="C2 elko 100 mikrofarad antara 5 volt dan ground"><rect x="748" y="384" width="34" height="64" rx="7" fill="#425a62" stroke="#263e47" stroke-width="3"/><path d="M751 396 h28" stroke="#e8f5ec" stroke-width="3"/><text x="765" y="374" text-anchor="middle" class="tiny-label">C2</text><text x="792" y="424" class="tiny-label">100 µF</text><text x="757" y="400" class="cap-plus">+</text></g>
+            <g class="component" data-part="c3" tabindex="0" role="button" aria-label="C3 kapasitor 100 nanofarad antara 3,3 volt dan ground"><path d="M783 451 H807 M783 463 H807" stroke="#566e87" stroke-width="5"/><text x="795" y="443" text-anchor="middle" class="tiny-label">C3</text><text x="817" y="467" class="tiny-label">100 nF</text></g>
+            <g class="component resistor" data-part="leds" tabindex="0" role="button" aria-label="Kedua LED dan resistor seri 1 kiloohm"><rect x="659" y="384" width="68" height="31" rx="8" fill="#f7f1df" stroke="#b09062" stroke-width="2"/><text x="693" y="405" text-anchor="middle">1 kΩ</text><rect x="659" y="410" width="68" height="31" rx="8" fill="#f7f1df" stroke="#b09062" stroke-width="2"/><text x="693" y="431" text-anchor="middle">1 kΩ</text><circle id="greenBulb" cx="955" cy="447" r="19" fill="#8cc8aa" stroke="#3e9670" stroke-width="4"/><circle id="redBulb" cx="955" cy="486" r="19" fill="#e4a7a0" stroke="#bf5e5a" stroke-width="4"/><text x="987" y="430" class="pin-label">LED HIJAU</text><text x="987" y="469" class="pin-label">LED MERAH</text><text x="909" y="430" class="tiny-label">A+</text><text x="975" y="430" class="tiny-label">K−</text><text x="909" y="470" class="tiny-label">A+</text><text x="975" y="509" class="tiny-label">K−</text><text x="985" y="525" class="tiny-label">Kedua kaki K− → GND</text></g>
+            <text x="38" y="559" class="note-svg">* Pastikan pin VU benar-benar 5 V saat USB aktif. R3 hanya bila DHT11 tanpa pull-up.</text>
+            <text x="38" y="584" class="note-svg">Warna: 5 V jingga · 3,3 V kuning · GND biru tua · DATA toska · AO ungu · LED hijau/merah.</text>
+          </svg>
+        </div>
+        <div class="component-info" id="componentInfo"><span class="info-icon">i</span><p><strong>Klik komponen pada rangkaian.</strong> Penjelasan dan jalur terkait akan muncul di sini.</p></div>
+      </div>
+
+      <aside class="panel controls" id="kendali">
+        <div class="section-head"><div><span class="eyebrow">02 / SIMULASI</span><h2>Kendali sensor</h2></div><span class="demo-tag">DEMO ×10</span></div>
+        <div class="control-group"><div class="control-heading"><label for="gasSlider">Respons MQ-135</label><strong><span id="gasReadout">310</span> ADC</strong></div><input id="gasSlider" type="range" min="3" max="999" value="310"><div class="range-ends"><span>Udara referensi</span><span>Respons meningkat</span></div><p>Geser ke kanan sesudah baseline untuk memicu alarm. Angka ini bukan konsentrasi gas.</p></div>
+        <div class="control-grid"><div class="control-group"><div class="control-heading"><label for="tempSlider">Suhu DHT11</label><strong><span id="tempReadout">27</span> °C</strong></div><input id="tempSlider" type="range" min="0" max="50" value="27"></div><div class="control-group"><div class="control-heading"><label for="humiditySlider">Kelembapan</label><strong><span id="humidityReadout">62</span> %</strong></div><input id="humiditySlider" type="range" min="0" max="100" value="62"></div></div>
+        <div class="process"><div><span class="step-count">1</span><div><strong>Conditioning MQ-135</strong><small>Pada alat asli, tunggu lebih dari 48 jam.</small></div></div><button id="conditionButton" type="button">Konfirmasi demo</button></div>
+        <div class="process"><div><span class="step-count">2</span><div><strong>Pemanasan</strong><small id="warmupHint">10 menit alat asli · 60 detik demo</small></div></div><button id="warmupButton" type="button" disabled>Percepat demo</button></div>
+        <div class="process"><div><span class="step-count">3</span><div><strong>Ambil baseline</strong><small id="baselineHint">60 detik alat asli · 6 detik demo</small></div></div><button id="baselineButton" type="button" disabled>Mulai kalibrasi</button></div>
+        <button class="reset-button" id="resetButton" type="button">↺ Mulai ulang simulasi</button>
+      </aside>
+    </section>
+
+    <section class="bottom-grid">
+      <div class="panel dashboard"><div class="section-head"><div><span class="eyebrow">03 / DASHBOARD</span><h2>Pratinjau datastream Blynk</h2></div><span class="offline-pill">● DATA SIMULASI</span></div><p class="muted">Pemetaan virtual pin mengikuti firmware. Pratinjau ini tidak memakai Auth Token dan tidak tersambung ke akun Blynk.</p><div class="streams" id="streams"></div></div>
+      <div class="panel" id="panduan"><div class="section-head"><div><span class="eyebrow">04 / CEK FISIK</span><h2>Panduan kabel ringkas</h2></div></div><div class="wire-table"><div><strong>NodeMCU D2</strong><span>DATA DHT11</span></div><div><strong>NodeMCU D5</strong><span>1 kΩ → anoda LED hijau</span></div><div><strong>NodeMCU D6</strong><span>1 kΩ → anoda LED merah</span></div><div><strong>NodeMCU A0</strong><span>Titik pembagi 47 kΩ / 10 kΩ</span></div><div><strong>MQ-135 AO</strong><span>47 kΩ → titik A0; C1 100 nF → GND</span></div><div><strong>MQ-135 VCC</strong><span>5 V terverifikasi; C2 100 µF → GND</span></div><div><strong>DHT11 VCC</strong><span>3V3; C3 100 nF → GND</span></div><div><strong>Semua katoda LED</strong><span>GND bersama</span></div></div><a class="guide-link" href="https://github.com/ZainalFattah/Tugas-IoT/blob/main/PANDUAN_PERAKITAN_BREADBOARD.md" target="_blank" rel="noopener noreferrer">Buka panduan perakitan lengkap ↗</a></div>
+    </section>
+    <footer><div><strong>UdaraKita · Kelompok 7</strong><span>Zainal Fattah · Naufal Adani · Aisyha N A</span></div><p>Simulasi pendidikan. Ukur titik ADC dengan multimeter sebelum menghubungkannya ke A0; jaga di bawah 1 V sesuai panduan.</p></footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

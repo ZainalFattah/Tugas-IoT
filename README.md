@@ -25,6 +25,10 @@ Versi final menggunakan **breadboard dan kabel jumper**, tanpa PCB khusus. Pandu
 
 Firmware Blynk menggunakan pin berikut: DHT11 pada D2/GPIO4, LED hijau pada D5/GPIO14, LED merah pada D6/GPIO12, dan MQ-135 pada A0.
 
+## Simulator web
+
+Buka [simulator UdaraKita](simulator/index.html) untuk mencoba rangkaian dan alur indikator tanpa membeli perangkat terlebih dahulu. [Panduan menjalankan simulator](simulator/README.md) menjelaskan tiap langkah. Simulator menggunakan komponen dan jalur rangkaian asli, tetapi merupakan model perilaku lokal; pratinjau datastream tidak mengirim data ke Blynk.Cloud.
+
 ## Lisensi
 
 Lihat [LICENSE](LICENSE) dan [THIRD_PARTY.md](THIRD_PARTY.md).
